@@ -1,0 +1,18 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    User Bids
+{% endblock %}
+
+{% block body %}
+    <h2>User Bids</h2>
+    {% if auctions %}
+        <ul>
+            {% for auction in auctions %}
+                <li><a href="{% url 'auction_details' auction_id=auction.id %}">{{ auction.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bids found.</p>
+    {% endif %}
+{% endblock %}
